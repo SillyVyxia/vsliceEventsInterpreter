@@ -37,7 +37,7 @@ function updateLerp(elapsed:Float):Float {
     fakeCamFollow.x += (game.camFollow.x - fakeCamFollow.x) * adjustedLerp;
     fakeCamFollow.y += (game.camFollow.y - fakeCamFollow.y) * adjustedLerp;
 }
-function tweenCameraZoom(?zoom:Float = 1, ?duration:Float = 1, ease:String)
+function tweenCameraZoom(?zoom:Float = 1, ?duration:Float = 1, ?ease:String = 'linear')
 {
     var fullZoom = trueDefaultZoom*zoom;
     if (ZoomCameraTween != null)
@@ -83,7 +83,7 @@ function vslicePlayAnim(char:Dynamic, anim:String, ?force:Bool = false)
         vSpecialAnim.boyfriend = true;
     }
 }
-function tweenCameraPosition(?x:Float = 0, ?y:Float = 0, ?duration:Float = 1, ?ease:String = 'LINEAR') {
+function tweenCameraPosition(?x:Float = 0, ?y:Float = 0, ?duration:Float = 1, ?ease:String = 'CLASSIC') {
     if (FocusCameraTween != null)
         FocusCameraTween.cancel();
     game.camFollow.x = x;
