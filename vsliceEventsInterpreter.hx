@@ -28,10 +28,7 @@ var currentCameraZoom = 1.0;
 var fakeCamFollow = null;
 var isClassicTween = false;
 var fakeFollowlerp = 0.04;
-function customFocusOn(x, y) {
-    FlxG.camera.scroll.set(x - FlxG.camera.width * 0.5, y - FlxG.camera.height * 0.5);
-}
-function updateLerp(elapsed:Float):Float {
+function updateLerp(elapsed:Float) {
     var adjustedLerp = 1.0 - Math.pow(1.0 - fakeFollowlerp * game.cameraSpeed * game.playbackRate, elapsed * 60);
 
     fakeCamFollow.x += (game.camFollow.x - fakeCamFollow.x) * adjustedLerp;
@@ -301,10 +298,10 @@ function onGameOverStart()
     var fullX = gameOverInst.boyfriend.getGraphicMidpoint().x + gameOverInst.boyfriend.cameraPosition[0];
     var fullY = gameOverInst.boyfriend.getGraphicMidpoint().y + gameOverInst.boyfriend.cameraPosition[1];
     tweenCameraPosition(fullX, fullY, 3, 'CLASSIC');
-    customFocusOn(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
     FlxG.camera.follow(fakeCamFollow, FlxCameraFollowStyle.LOCKON, 99.9);
 }
 function onEndSong()
 {
     eventsArray = [];
 }
+
